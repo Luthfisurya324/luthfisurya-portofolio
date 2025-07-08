@@ -68,3 +68,4 @@ Berikut adalah rincian untuk setiap komponen React dalam proyek:
 ### Riwayat Tugas Lainnya
 - [001 - Pembaruan dan Integrasi Data Kontak Dinamis](./docs/001_update_contact_data.md)
 - [002 - Penyesuaian Kontak dan Ikon](./docs/002_penyesuaian_kontak_dan_ikon.md)
+- [014 - Perbaikan Tema Monochrome Sophisticated](./docs/014_perbaikan_tema_monochrome_sophisticated.md)

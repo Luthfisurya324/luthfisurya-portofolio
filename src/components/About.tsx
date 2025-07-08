@@ -48,18 +48,26 @@ const About: React.FC = () => {
   ];
 
   return (
-        <section ref={sectionRef} id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+        <section ref={sectionRef} id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-10 right-10 w-40 h-40 border border-gray-100 rotate-12 opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-20 h-20 bg-gray-50 rotate-45 opacity-40"></div>
+      <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-gray-300 rounded-full opacity-50"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Enhanced Section Header */}
         <div
           className={`text-center mb-16 transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-            About Me
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display mb-4 tracking-tight text-shadow-medium relative">
+            <span className="relative z-10">About Me</span>
+            <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-gray-100 to-transparent opacity-30 blur-sm"></div>
           </h2>
-                    <div className="w-24 h-1 bg-gray-300 mx-auto"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-500 to-gray-200 animate-pulse"></div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -101,26 +109,35 @@ const About: React.FC = () => {
               {cvData.skills.map((skill, index) => (
                 <div
                   key={skill.category}
-                  className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1 ${
+                  className={`bg-white p-6 border border-gray-100 hover:border-gray-300 shadow-md hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2 hover-lift relative overflow-hidden ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                   style={{ transitionDelay: `${700 + index * 100}ms` }}
                 >
-                  {getSkillIcon(skill.category)}
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                    {skill.category}
-                  </h3>
-                  <ul className="space-y-2">
-                    {skill.technologies.map((item, itemIndex) => (
-                      <li
-                        key={itemIndex}
-                        className="text-gray-600 text-sm flex items-center"
-                      >
-                                                <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3 group-hover:bg-black transition-colors duration-300"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Subtle background pattern */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -top-2 -right-2 w-4 h-4 border border-gray-200 rotate-45 opacity-0 group-hover:opacity-30 transition-all duration-300"></div>
+                  
+                  <div className="relative z-10">
+                    {getSkillIcon(skill.category)}
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-black transition-colors duration-300">
+                      {skill.category}
+                    </h3>
+                    <ul className="space-y-2">
+                      {skill.technologies.map((item, itemIndex) => (
+                        <li
+                          key={itemIndex}
+                          className="text-gray-600 text-sm flex items-center group-hover:text-gray-800 transition-colors duration-300"
+                        >
+                                                  <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3 group-hover:bg-black transition-all duration-300 group-hover:scale-125"></span>
+                          <span className="relative">
+                            {item}
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gray-300 group-hover:w-full transition-all duration-500" style={{ transitionDelay: `${itemIndex * 50}ms` }}></span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>

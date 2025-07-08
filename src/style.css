@@ -1,17 +1,183 @@
 @import "tailwindcss";
 
-.dotted-background {
-  background-color: #ffffff;
-  background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: calc(var(--mouse-x, 0px) / -15) calc(var(--mouse-y, 0px) / -15);
-  transition: background-position 0.2s ease-out;
-}
-
-/* Custom styles untuk portfolio */
+/* Enhanced Monochrome Theme Variables */
 :root {
+  --primary-black: #000000;
+  --soft-black: #1a1a1a;
+  --charcoal: #2d2d2d;
+  --medium-gray: #4a4a4a;
+  --light-gray: #6b7280;
+  --lighter-gray: #9ca3af;
+  --pale-gray: #d1d5db;
+  --off-white: #f9fafb;
+  --pure-white: #ffffff;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced Interactive Background */
+.dotted-background {
+  background-color: var(--pure-white);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0,0,0,0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(45deg, transparent 49%, rgba(0,0,0,0.01) 50%, transparent 51%);
+  background-size: 40px 40px, 60px 60px, 20px 20px;
+  background-position: 
+    calc(var(--mouse-x, 0px) / -20) calc(var(--mouse-y, 0px) / -20),
+    calc(var(--mouse-x, 0px) / -30) calc(var(--mouse-y, 0px) / -30),
+    calc(var(--mouse-x, 0px) / -10) calc(var(--mouse-y, 0px) / -10);
+  transition: background-position 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sophisticated Gradient Overlays */
+.gradient-overlay {
+  position: relative;
+}
+
+.gradient-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.02) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(0,0,0,0.02) 100%
+  );
+  pointer-events: none;
+}
+
+/* Elegant Text Shadows */
+.text-shadow-subtle {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.text-shadow-medium {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Advanced Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Geometric Patterns */
+.geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(0,0,0,0.02) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(0,0,0,0.02) 50%, transparent 60%);
+  background-size: 30px 30px;
+}
+
+/* Sophisticated Borders */
+.border-gradient {
+  position: relative;
+  background: white;
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(45deg, #000, #666, #000);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+}
+
+/* Enhanced Typography */
+.font-display {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Smooth Animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--medium-gray);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--primary-black);
+  color: var(--pure-white);
+}
+
+/* Focus States */
+.focus-ring:focus {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 2px;
 }

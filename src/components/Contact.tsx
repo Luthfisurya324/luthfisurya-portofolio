@@ -79,19 +79,28 @@ const Contact: React.FC = () => {
     ];
 
   return (
-        <section ref={sectionRef} id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+        <section ref={sectionRef} id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 geometric-pattern opacity-10"></div>
+      <div className="absolute top-10 left-10 w-40 h-40 border border-gray-100 rotate-12 opacity-20"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-gray-50 rotate-45 opacity-30"></div>
+      <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-gray-300 rounded-full opacity-40"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Enhanced Section Header */}
         <div
           className={`text-center mb-16 transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight text-black">
-            Get In Touch
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display mb-4 tracking-tight text-black text-shadow-medium relative">
+            <span className="relative z-10">Get In Touch</span>
+            <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-gray-100 to-transparent opacity-30 blur-sm"></div>
           </h2>
-                    <div className="w-24 h-1 bg-gray-300 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto mb-6 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-600 to-gray-300 animate-pulse"></div>
+          </div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind? Let's discuss how we can bring your ideas to life.
           </p>
         </div>
@@ -114,21 +123,32 @@ const Contact: React.FC = () => {
               </p>
             </div>
 
-            {/* Contact Info Cards */}
+            {/* Enhanced Contact Info Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
                   href={info.link}
-                  className={`flex items-center p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-300 group transform ${
+                  className={`flex items-center p-5 bg-white border border-gray-100 hover:border-gray-300 hover:bg-gray-50 rounded-lg transition-all duration-500 group transform hover-lift relative overflow-hidden ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
-                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full group-hover:bg-gray-300 transition-colors duration-300">{info.icon}</div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold text-black">{info.label}</h4>
-                    <p className="text-gray-600">{info.value}</p>
+                  {/* Subtle background effect */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 border border-gray-200 rotate-45 opacity-0 group-hover:opacity-30 transition-all duration-300"></div>
+                  
+                                    <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center bg-gray-100 border border-gray-200 rounded-full group-hover:bg-white group-hover:border-gray-400 group-hover:scale-110 transition-all duration-300 relative z-10 shadow-sm">{info.icon}</div>
+                  <div className="ml-5 relative z-10">
+                    <h4 className="font-semibold text-black group-hover:text-gray-900 transition-colors duration-300 mb-1">{info.label}</h4>
+                    <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-sm">{info.value}</p>
+                  </div>
+                  
+                  {/* Hover indicator */}
+                  <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 relative z-10">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
                 </a>
               ))}
@@ -163,108 +183,134 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Enhanced Contact Form */}
           <div
             className={`transform transition-all duration-1000 delay-500 ${
               isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
             }`}
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 border border-gray-200">
-                          <h3 className="text-2xl font-semibold mb-6 text-black">
-                Send Me a Message
+            <form onSubmit={handleSubmit} className="bg-white p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-500 relative overflow-hidden">
+              {/* Form background pattern */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-50 to-transparent opacity-50"></div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 border border-gray-100 rotate-45 opacity-30"></div>
+              
+                          <h3 className="text-2xl font-semibold mb-6 text-black relative z-10">
+                <span className="relative">
+                  Send Me a Message
+                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"></div>
+                </span>
               </h3>
               
               <div className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                {/* Enhanced Name Field */}
+                <div className="relative z-10">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 transition-colors duration-300">
                     Full Name *
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-200"
-                    placeholder="Your full name"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-all duration-300 hover:border-gray-400 bg-white focus:bg-gray-50 focus-ring"
+                      placeholder="Your full name"
+                    />
+                    <div className="absolute inset-0 border border-transparent focus-within:border-black pointer-events-none transition-colors duration-300"></div>
+                  </div>
                 </div>
 
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                {/* Enhanced Email Field */}
+                <div className="relative z-10">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 transition-colors duration-300">
                     Email Address *
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-200"
-                    placeholder="your.email@example.com"
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-all duration-300 hover:border-gray-400 bg-white focus:bg-gray-50 focus-ring"
+                      placeholder="your.email@example.com"
+                    />
+                    <div className="absolute inset-0 border border-transparent focus-within:border-black pointer-events-none transition-colors duration-300"></div>
+                  </div>
                 </div>
 
-                {/* Subject Field */}
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                {/* Enhanced Subject Field */}
+                <div className="relative z-10">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2 transition-colors duration-300">
                     Subject *
                   </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-200"
-                    placeholder="Project inquiry, collaboration, etc."
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-all duration-300 hover:border-gray-400 bg-white focus:bg-gray-50 focus-ring"
+                      placeholder="Project inquiry, collaboration, etc."
+                    />
+                    <div className="absolute inset-0 border border-transparent focus-within:border-black pointer-events-none transition-colors duration-300"></div>
+                  </div>
                 </div>
 
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                {/* Enhanced Message Field */}
+                <div className="relative z-10">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 transition-colors duration-300">
                     Message *
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-200 resize-none"
-                    placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
-                  />
+                  <div className="relative">
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-all duration-300 hover:border-gray-400 bg-white focus:bg-gray-50 resize-none focus-ring"
+                      placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
+                    />
+                    <div className="absolute inset-0 border border-transparent focus-within:border-black pointer-events-none transition-colors duration-300"></div>
+                  </div>
                 </div>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full py-3 px-6 font-medium transition-all duration-300 ${
-                    isSubmitting
-                      ? 'bg-gray-400 text-white cursor-not-allowed'
-                      : 'bg-black text-white hover:bg-gray-800'
-                  }`}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
+                {/* Enhanced Submit Button */}
+                <div className="relative z-10">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-black text-white py-4 px-6 hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium relative overflow-hidden group hover-lift"
+                  >
+                    {/* Button background effects */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    
+                    {/* Button content */}
+                    <span className="relative z-10 flex items-center justify-center space-x-2">
+                      <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                      {!isSubmitting && (
+                        <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                      )}
                     </span>
-                  ) : (
-                    'Send Message'
-                  )}
-                </button>
+                    
+                    {/* Loading indicator */}
+                    {isSubmitting && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                  </button>
+                </div>
               </div>
             </form>
           </div>
