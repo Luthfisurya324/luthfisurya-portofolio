@@ -1,4 +1,4 @@
-# 014 - Perbaikan File .gitignore
+# 014 - Perbaikan Tema Monochrome Sophisticated
 
 - **Nomor Tugas**: 014
 - **Tanggal**: 2024-12-19
