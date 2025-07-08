@@ -1,4 +1,64 @@
-# 014 - Perbaikan Tema Monochrome Sophisticated
+# 014 - Perbaikan File .gitignore
+
+- **Nomor Tugas**: 014
+- **Tanggal**: 2024-12-19
+- **Author**: Cascade
+
+---
+
+## 1. Ringkasan Perubahan
+
+Memperbaiki dan melengkapi file `.gitignore` dengan menambahkan item-item yang diperlukan untuk proyek React + TypeScript + Vite + Tailwind CSS agar mengikuti best practices dan mencegah file-file yang tidak perlu masuk ke repository.
+
+## 2. Detail Implementasi
+
+Menambahkan beberapa kategori baru ke dalam file `.gitignore`:
+
+### File yang Dimodifikasi
+
+- `.gitignore`: Ditambahkan 15+ item baru yang dikelompokkan berdasarkan kategori untuk meningkatkan coverage dan mengikuti standar industri.
+
+### Kategori yang Ditambahkan:
+
+1. **Environment Variables**:
+   - `.env`, `.env.local`, `.env.development.local`, `.env.test.local`, `.env.production.local`
+
+2. **Build & Cache Directories**:
+   - `build/`, `coverage/`, `.cache/`, `.parcel-cache/`, `.vite/`
+
+3. **Testing**:
+   - `.nyc_output`
+
+4. **Storybook**:
+   - `storybook-static/`
+
+5. **OS Generated Files**:
+   - `Thumbs.db`, `ehthumbs.db`
+
+6. **Temporary Files**:
+   - `*.tmp`, `*.temp`
+
+## 3. Alasan Perubahan
+
+File `.gitignore` sebelumnya sudah memadai untuk development dasar, namun tidak lengkap untuk proyek modern. Penambahan ini diperlukan untuk:
+
+- **Keamanan**: Mencegah file environment variables masuk ke repository
+- **Performa**: Menghindari commit file cache dan build yang besar
+- **Kebersihan**: Mencegah file temporary dan OS-generated masuk ke version control
+- **Best Practices**: Mengikuti standar industri untuk proyek React/TypeScript
+
+## 4. Catatan Tambahan & Troubleshooting
+
+### Manfaat Implementasi:
+- Repository menjadi lebih bersih dan fokus pada source code
+- Mengurangi ukuran repository dengan menghindari file-file yang tidak perlu
+- Meningkatkan keamanan dengan mencegah commit environment variables
+- Mempercepat operasi Git dengan mengurangi jumlah file yang di-track
+
+### Troubleshooting:
+- Jika ada file yang sebelumnya sudah di-commit dan sekarang masuk ke `.gitignore`, gunakan `git rm --cached <filename>` untuk menghapusnya dari tracking
+- Pastikan file `.env` yang berisi kredensial tidak pernah di-commit ke repository
+- Jika menggunakan IDE lain selain VS Code, tambahkan folder konfigurasi IDE tersebut ke `.gitignore`
 
 ## Deskripsi Tugas
 Melakukan perbaikan visual menyeluruh pada portfolio dengan menerapkan tema monochrome yang sophisticated dan elegant. Tugas ini mencakup peningkatan styling pada semua komponen untuk menciptakan pengalaman visual yang unik dan menarik.
